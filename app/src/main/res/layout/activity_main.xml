@@ -7,16 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hitung Persegi Panjang"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="25sp"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Masukkan Panjang"
+        android:inputType="number"
         android:id="@+id/et_panjang"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Masukkan Lebar"
+        android:inputType="number"
         android:id="@+id/et_lebar"/>
 
     <Button
@@ -38,4 +48,37 @@
         android:text="Hasil"
         android:textStyle="bold"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hitung Persegi"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Sisi"
+        android:inputType="number"
+        android:id="@+id/et_sisi"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hitung Luas"
+        android:id="@+id/btn_hitung_luas_persegi"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hitung Keliling"
+        android:id="@+id/btn_hitung_keliling_persegi"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_hasil_persegi"
+        android:text="Hasil"
+        android:textStyle="bold"/>
 </LinearLayout>

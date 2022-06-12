@@ -16,24 +16,6 @@ class MainPresenter (private val mainView: MainView) {
     }
 
     fun hitungKelilingPersegiPanjang(panjang: Float, lebar: Float){
-        val keliling = 2*(panjang+lebar)
-        mainView
-    }
-
-    fun hitungLuasPersegi(panjang: Float, lebar: Float){
-        if (panjang == 0F) {
-            mainView.showError("Panjang tidak boleh 0")
-            return
-        }
-        if (lebar == 0F) {
-            mainView.showError("Lebar tidak boleh 0")
-            return
-        }
-        val luas = panjang*lebar
-        mainView.updateLuas(luas)
-    }
-
-    fun hitungKelilingPersegi(panjang: Float, lebar: Float){
         if (panjang == 0F) {
             mainView.showError("Panjang tidak boleh 0")
             return
@@ -44,5 +26,23 @@ class MainPresenter (private val mainView: MainView) {
         }
         val keliling = 2*(panjang+lebar)
         mainView.updateKeliling(keliling)
+    }
+
+    fun hitungLuasPersegi(sisi: Float){
+        if (sisi == 0F) {
+            mainView.showError("Sisi tidak boleh 0")
+            return
+        }
+        val luaspersegi = sisi*sisi
+        mainView.updateLuasPersegi(luaspersegi)
+    }
+
+    fun hitungKelilingPersegi(sisi: Float){
+        if (sisi == 0F) {
+            mainView.showError("Sisi tidak boleh 0")
+            return
+        }
+        val kelilingpersegi = 4*sisi
+        mainView.updateKelilingPersegi(kelilingpersegi)
     }
 }

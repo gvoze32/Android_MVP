@@ -13,6 +13,11 @@ class MainActivity : AppCompatActivity(), MainView {
     private lateinit var btnHitungKeliling: Button
     private lateinit var tvHasil: TextView
 
+    private lateinit var etSisi: EditText
+    private lateinit var btnHitungLuasPersegi: Button
+    private lateinit var btnHitungKelilingPersegi: Button
+    private lateinit var tvHasilPersegi: TextView
+
     private lateinit var  mainPresenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,10 +31,31 @@ class MainActivity : AppCompatActivity(), MainView {
         btnHitungKeliling = findViewById(R.id.btn_hitung_keliling)
         tvHasil = findViewById(R.id.tv_hasil)
 
+        etSisi = findViewById(R.id.et_sisi)
+        btnHitungLuasPersegi = findViewById(R.id.btn_hitung_luas_persegi)
+        btnHitungKelilingPersegi = findViewById(R.id.btn_hitung_keliling_persegi)
+        tvHasilPersegi = findViewById(R.id.tv_hasil_persegi)
+
         btnHitungLuas.setOnClickListener{
             val panjang = etPanjang.text.toString().toFloat()
             val lebar = etLebar.text.toString().toFloat()
+            mainPresenter.hitungLuasPersegiPanjang(panjang, lebar)
+        }
+
+        btnHitungKeliling.setOnClickListener{
+            val panjang = etPanjang.text.toString().toFloat()
+            val lebar = etLebar.text.toString().toFloat()
             mainPresenter.hitungKelilingPersegiPanjang(panjang, lebar)
+        }
+
+        btnHitungLuasPersegi.setOnClickListener{
+            val sisi = etSisi.text.toString().toFloat()
+            mainPresenter.hitungLuasPersegi(sisi)
+        }
+
+        btnHitungKelilingPersegi.setOnClickListener{
+            val sisi = etSisi.text.toString().toFloat()
+            mainPresenter.hitungKelilingPersegi(sisi)
         }
     }
 
@@ -39,6 +65,14 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun updateKeliling(keliling: Float) {
         tvHasil.text = keliling.toString()
+    }
+
+    override fun updateLuasPersegi(luaspersegi: Float) {
+        tvHasilPersegi.text = luaspersegi.toString()
+    }
+
+    override fun updateKelilingPersegi(kelilingpersegi: Float) {
+        tvHasilPersegi.text = kelilingpersegi.toString()
     }
 
     override fun showError(errorMsg: String) {
